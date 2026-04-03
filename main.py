@@ -1,6 +1,17 @@
-def main():
-    print("Hello from mountainshooter!")
+import pygame
 
+# To use the packege it must be initialized.
+print('Setup Start')
+pygame.init()
 
-if __name__ == "__main__":
-    main()
+# Create the game's window
+window = pygame.display.set_mode(size=(600, 480))
+print('Setup End')
+
+print('Loop Start')
+while True:
+    # Check for all events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()  # Close window
+            quit()  # End pygame
