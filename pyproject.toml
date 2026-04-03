@@ -1,0 +1,11 @@
+[project]
+name = "mountainshooter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.10"
+dependencies = [
+    "numpy>=2.4.4",
+    "plotly>=6.6.0",
+    "pygame>=2.6.1",
+]
