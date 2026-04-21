@@ -1,11 +1,17 @@
-import pygame
+import sys
 
+import pygame
+from pygame import Surface, Rect
+from pygame.font import Font
+
+from code.Const import COLOR_WHITE, WIN_HEIGHT
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
 
 class Level:
     def __init__(self, window, name, game_mode):
+        self.timeout = 20000  # 20 seconds
         self.window = window
         self.name = name
         self.game_mode = game_mode
@@ -13,12 +19,29 @@ class Level:
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
 
     def run(self):
-        while True:
-            # for ent in self.entity_list:
-            #     self.window.blit(source=ent.surf, dest=ent.rect)
-            #     ent.move()
+        pygame.mixer_music.load('./asset/pixabay/musicinmedia-8bit-theme-loop-chiptune-symphony-387749.mp3')
+        pygame.mixer_music.play(-1)
+        clock = pygame.time.Clock()
 
+        while True:
+            clock.tick(60)
             for i in range(len(self.entity_list)):
                 self.window.blit(source=self.entity_list[i].surf, dest=self.entity_list[i].rect)
-                self.entity_list[i].move(i)
+                # Send as speed the integer division. The speed will be the same for each pair in the list.
+                self.entity_list[i].move(i // 2) # a // b is a integer division
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+            # Printed text
+            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', COLOR_WHITE, (10, 5))
+            self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
+            self.level_text(14, f'entities: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
+
+    def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
+        text_font: Font = pygame.font.SysFont(name='Lucida Sans Typewriter', size=text_size)
+        text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
+        text_rect: Rect = text_surf.get_rect(left=text_pos[0], top=text_pos[1])
+        self.window.blit(source=text_surf, dest=text_rect)
