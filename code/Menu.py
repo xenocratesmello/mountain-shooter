@@ -2,7 +2,7 @@ import pygame
 from pygame.font import Font
 from pygame import Surface, Rect
 
-from code.Const import WIN_WIDTH, COLOR_ORANGE, COLOR_WHITE, MENU_OPTION
+from code.Const import WIN_WIDTH, COLOR_ORANGE, COLOR_WHITE, MENU_OPTION, COLOR_YELLOW
 
 
 class Menu:
@@ -11,17 +11,24 @@ class Menu:
         self.surf = pygame.image.load('./asset/m1/PRE_ORIG_SIZE.png')
         self.rect = self.surf.get_rect(left=0, top=0)
 
+    @property
     def run(self, ):
+        menu_option: int = 0
+
         pygame.mixer.music.load('./asset/pixabay/freesound_community-8bit-music-for-game-68698.mp3')
         pygame.mixer.music.play(-1)
 
         while True:
+            # Draw images
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(50, "Mountain", COLOR_ORANGE, ((WIN_WIDTH / 2), 70))
             self.menu_text(50, "Shooter", COLOR_ORANGE, ((WIN_WIDTH / 2), 120))
 
             for i in range(len(MENU_OPTION)):
-                self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i))
+                if i == menu_option:
+                    self.menu_text(20, MENU_OPTION[i], COLOR_YELLOW, ((WIN_WIDTH / 2), 200 + 25 * i))
+                else:
+                    self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i))
 
             pygame.display.flip()
 
@@ -30,6 +37,14 @@ class Menu:
                 if event.type == pygame.QUIT:
                     pygame.quit()  # Close window
                     quit()  # End pygame
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        menu_option = (menu_option + 1) % len(MENU_OPTION)
+                    if event.key == pygame.K_UP:
+                        menu_option = (menu_option - 1) % len(MENU_OPTION)
+                    if event.key == pygame.K_RETURN:
+                        return MENU_OPTION[menu_option]
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name='Lucida Sans Typewriter', size=text_size)
