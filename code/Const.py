@@ -19,53 +19,78 @@ ENTITY_HEALTH = {
     'Player1': 300,
     'Player2': 300,
     'Enemy1': 50,
-    'Enemy2': 60
-}
+    'Enemy2': 60,
+    'Player1Shot': 1,
+    'Player2Shot': 1,
+    'Enemy1Shot': 1,
+    'Enemy2Shot': 1}
+
+ENTITY_SHOT_DELAY = {
+    'Player1': 20,
+    'Player2': 20,
+    'Enemy1': 100,
+    'Enemy2': 80}
 
 EVENT_ENEMY = pygame.USEREVENT + 1
 
 # F
-FILEPATH = {'Level1Bg1': 'craftpix/m2/1',
-            'Level1Bg2': 'craftpix/m2/2',
-            'Level1Bg3': 'craftpix/m2/3',
-            'Level1Bg4': 'craftpix/m2/4',
-            'Level1Bg5': 'craftpix/m2/5',
-            'Level1Bg6': 'craftpix/m2/6',
-            'Level1Bg7': 'craftpix/m2/7',
-            'Player1': 'craftpix/ships/Ship1',
-            'Player2': 'craftpix/ships/Ship2',
-            'Enemy1': 'craftpix/ships/Ship3',
-            'Enemy2': 'craftpix/ships/Ship4'}
+FILEPATH = {
+    'Level1Bg1': 'craftpix/m2/1',
+    'Level1Bg2': 'craftpix/m2/2',
+    'Level1Bg3': 'craftpix/m2/3',
+    'Level1Bg4': 'craftpix/m2/4',
+    'Level1Bg5': 'craftpix/m2/5',
+    'Level1Bg6': 'craftpix/m2/6',
+    'Level1Bg7': 'craftpix/m2/7',
+    'Player1': 'craftpix/ships/Ship1',
+    'Player2': 'craftpix/ships/Ship2',
+    'Enemy1': 'craftpix/ships/Ship3',
+    'Enemy2': 'craftpix/ships/Ship4',
+    'Player1Shot': 'craftpix/shots/shot1_asset',
+    'Player2Shot': 'craftpix/shots/shot2_asset',
+    'Enemy1Shot': 'craftpix/shots/shot3_asset',
+    'Enemy2Shot': 'craftpix/shots/shot4_asset'}
 # M
-MENU_OPTION = ('NEW GAME 1P',
-               'NEW GAME 2P - COOPERATIVE',
-               'NEW GAME 2P - COMPETITIVE',
-               'SCORE',
-               'EXIT')
+MENU_OPTION = (
+    'NEW GAME 1P',
+    'NEW GAME 2P - COOPERATIVE',
+    'NEW GAME 2P - COMPETITIVE',
+    'SCORE',
+    'EXIT')
 
 # P
-PLAYER_KEY_UP = {'Player1': pygame.K_UP,
-                 'Player2': pygame.K_w}
-PLAYER_KEY_DOWN = {'Player1': pygame.K_DOWN,
-                   'Player2': pygame.K_s}
-PLAYER_KEY_LEFT = {'Player1': pygame.K_LEFT,
-                   'Player2': pygame.K_a}
-PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
-                    'Player2': pygame.K_d}
-PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
-                    'Player2': pygame.K_LCTRL}
+PLAYER_KEY_UP = {
+    'Player1': pygame.K_UP,
+    'Player2': pygame.K_w}
+PLAYER_KEY_DOWN = {
+    'Player1': pygame.K_DOWN,
+    'Player2': pygame.K_s}
+PLAYER_KEY_LEFT = {
+    'Player1': pygame.K_LEFT,
+    'Player2': pygame.K_a}
+PLAYER_KEY_RIGHT = {
+    'Player1': pygame.K_RIGHT,
+    'Player2': pygame.K_d}
+PLAYER_KEY_SHOOT = {
+    'Player1': pygame.K_RCTRL,
+    'Player2': pygame.K_LCTRL}
 # S
-SPEED = {'Level1Bg1': 0,
-         'Level1Bg2': 1,
-         'Level1Bg3': 2,
-         'Level1Bg4': 3,
-         'Level1Bg5': 4,
-         'Level1Bg6': 5,
-         'Level1Bg7': 6,
-         'Player1': 3,
-         'Player2': 3,
-         'Enemy1': 2,
-         'Enemy2': 1}
+SPEED = {
+    'Level1Bg1': 0,
+    'Level1Bg2': 1,
+    'Level1Bg3': 2,
+    'Level1Bg4': 3,
+    'Level1Bg5': 4,
+    'Level1Bg6': 5,
+    'Level1Bg7': 6,
+    'Player1': 3,
+    'Player2': 3,
+    'Enemy1': 2,
+    'Enemy2': 1,
+    "Player1Shot": 5,
+    'Player2Shot': 5,
+    'Enemy1Shot': 5,
+    'Enemy2Shot': 3}
 
 SPAWN_TIME = 4000
 
