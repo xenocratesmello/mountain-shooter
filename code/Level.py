@@ -1,10 +1,11 @@
+import random
 import sys
 
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import COLOR_WHITE, WIN_HEIGHT
+from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
@@ -17,6 +18,10 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player1'))
+        if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
+            self.entity_list.append(EntityFactory.get_entity('Player2'))
+        pygame.time.set_timer(EVENT_ENEMY,SPAWN_TIME)
 
     def run(self):
         pygame.mixer_music.load('./asset/pixabay/musicinmedia-8bit-theme-loop-chiptune-symphony-387749.mp3')
@@ -27,12 +32,15 @@ class Level:
             clock.tick(60)
             for i in range(len(self.entity_list)):
                 self.window.blit(source=self.entity_list[i].surf, dest=self.entity_list[i].rect)
-                # Send as speed the integer division. The speed will be the same for each pair in the list.
-                self.entity_list[i].move(i // 2) # a // b is a integer division
+
+                self.entity_list[i].move()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                if event.type == EVENT_ENEMY:
+                    enemy_choice = random.choice(['Enemy1', 'Enemy2'])
+                    self.entity_list.append(EntityFactory.get_entity(enemy_choice))
 
             # Printed text
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', COLOR_WHITE, (10, 5))

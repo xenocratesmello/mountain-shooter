@@ -1,16 +1,59 @@
 # C
+import pygame
+
 COLOR_ORANGE = (255, 165, 0)
 COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
 COLOR_YELLOW = (255, 255, 0)
 COLOR_BLUE = (0, 0, 255)
 
+# E
+EVENT_ENEMY = pygame.USEREVENT + 1
+
+# F
+FILEPATH = {'Level1Bg1': 'craftpix/m2/1',
+            'Level1Bg2': 'craftpix/m2/2',
+            'Level1Bg3': 'craftpix/m2/3',
+            'Level1Bg4': 'craftpix/m2/4',
+            'Level1Bg5': 'craftpix/m2/5',
+            'Level1Bg6': 'craftpix/m2/6',
+            'Level1Bg7': 'craftpix/m2/7',
+            'Player1': 'craftpix/ships/Ship1',
+            'Player2': 'craftpix/ships/Ship2',
+            'Enemy1': 'craftpix/ships/Ship3',
+            'Enemy2': 'craftpix/ships/Ship4'}
 # M
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
                'NEW GAME 2P - COMPETITIVE',
                'SCORE',
                'EXIT')
+
+# P
+PLAYER_KEY_UP = {'Player1': pygame.K_UP,
+                 'Player2': pygame.K_w}
+PLAYER_KEY_DOWN = {'Player1': pygame.K_DOWN,
+                   'Player2': pygame.K_s}
+PLAYER_KEY_LEFT = {'Player1': pygame.K_LEFT,
+                   'Player2': pygame.K_a}
+PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
+                    'Player2': pygame.K_d}
+PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
+                    'Player2': pygame.K_LCTRL}
+# S
+SPEED = {'Level1Bg1': 0,
+         'Level1Bg2': 1,
+         'Level1Bg3': 2,
+         'Level1Bg4': 3,
+         'Level1Bg5': 4,
+         'Level1Bg6': 5,
+         'Level1Bg7': 6,
+         'Player1': 3,
+         'Player2': 3,
+         'Enemy1': 2,
+         'Enemy2': 1}
+
+SPAWN_TIME = 4000
 
 # W
 WIN_WIDTH = 576

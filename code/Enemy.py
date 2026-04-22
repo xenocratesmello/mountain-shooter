@@ -1,8 +1,8 @@
-from code.Const import WIN_WIDTH, SPEED
+from code.Const import SPEED, WIN_WIDTH
 from code.Entity import Entity
 
 
-class Background(Entity):
+class Enemy(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
 
