@@ -2,20 +2,20 @@ import pygame
 from pygame.font import Font
 from pygame import Surface, Rect
 
-from code.Const import WIN_WIDTH, COLOR_ORANGE, COLOR_WHITE, MENU_OPTION, COLOR_YELLOW
+from code.Const import WIN_WIDTH, COLOR_ORANGE, COLOR_WHITE, MENU_OPTION, COLOR_YELLOW, FILEPATH, MUSIC_FILE
 
 
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./asset/craftpix/m1/PRE_ORIG_SIZE.png').convert_alpha()
+        self.surf = pygame.image.load(f'./asset/{FILEPATH['Menu']}.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     @property
     def run(self, ):
         menu_option: int = 0
 
-        pygame.mixer.music.load('./asset/pixabay/freesound_community-8bit-music-for-game-68698.mp3')
+        pygame.mixer.music.load(MUSIC_FILE['Menu'])
         pygame.mixer.music.play(-1)
 
         while True:

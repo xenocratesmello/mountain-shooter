@@ -1,5 +1,6 @@
 # C
 import pygame
+from pygame.examples.grid import WINDOW_WIDTH
 
 COLOR_ORANGE = (255, 165, 0)
 COLOR_WHITE = (255, 255, 255)
@@ -8,6 +9,9 @@ COLOR_YELLOW = (255, 255, 0)
 COLOR_BLUE = (0, 0, 255)
 COLOR_GREEN = (0, 255, 0)
 COLOR_CYAN = (0, 255, 255)
+
+# D
+DB_NAME = 'db_mountain_shooter'
 
 # E
 ENTITY_DAMAGE = {
@@ -107,7 +111,9 @@ FILEPATH = {
     'Player1Shot': 'craftpix/shots/shot1_asset',
     'Player2Shot': 'craftpix/shots/shot2_asset',
     'Enemy1Shot': 'craftpix/shots/shot3_asset',
-    'Enemy2Shot': 'craftpix/shots/shot4_asset'}
+    'Enemy2Shot': 'craftpix/shots/shot4_asset',
+    'Menu': 'craftpix/m1/PRE_ORIG_SIZE',
+    'Score': 'craftpix/m8/PRE_ORIG_SIZE'}
 # M
 MENU_OPTION = (
     'NEW GAME 1P',
@@ -118,7 +124,9 @@ MENU_OPTION = (
 
 MUSIC_FILE = {
     'Level1': './asset/pixabay/tudo_free-16-bits-music-294095.mp3',
-    'Level2': './asset/pixabay/tudo_free-16-bits-musica-294099.mp3'}
+    'Level2': './asset/pixabay/tudo_free-16-bits-musica-294099.mp3',
+    'Menu': './asset/pixabay/freesound_community-8bit-music-for-game-68698.mp3',
+    'Score': './asset/pixabay/arthurhale-8bit-video-game-music-289970.mp3'}
 
 # P
 PLAYER_KEY_UP = {
@@ -136,6 +144,11 @@ PLAYER_KEY_RIGHT = {
 PLAYER_KEY_SHOOT = {
     'Player1': pygame.K_RCTRL,
     'Player2': pygame.K_LCTRL}
+
+# W
+WIN_WIDTH = 576
+WIN_HEIGHT = 324
+
 # S
 SPEED = {
     'Level1Bg1': 0,
@@ -160,11 +173,25 @@ SPEED = {
     'Enemy2Shot': 3}
 
 SPAWN_TIME = 3000
+SCORE_POS = {
+    'Title': (WIN_WIDTH / 2, 50),
+    'EnterName': (WIN_WIDTH / 2, 80),
+    'Label': (WIN_WIDTH / 2, 90),
+    'Name': (WIN_WIDTH / 2, 110),
+    0: (WIN_WIDTH / 2, 110),
+    1: (WIN_WIDTH / 2, 130),
+    2: (WIN_WIDTH / 2, 150),
+    3: (WIN_WIDTH / 2, 170),
+    4: (WIN_WIDTH / 2, 190),
+    5: (WIN_WIDTH / 2, 210),
+    6: (WIN_WIDTH / 2, 230),
+    7: (WIN_WIDTH / 2, 250),
+    8: (WIN_WIDTH / 2, 270),
+    9: (WIN_WIDTH / 2, 290)
+}
 
 # T
 TIMEOUT_STEP = 100 # 100ms
 TIMEOUT_LEVEL = 20000 # 20s
 
-# W
-WIN_WIDTH = 576
-WIN_HEIGHT = 324
+
