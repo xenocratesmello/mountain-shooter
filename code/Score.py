@@ -1,12 +1,9 @@
 import sys
 from datetime import datetime
-
 import pygame
-from plotly.graph_objs.volume import Surface
-from pygame import Rect
+from pygame import Rect, Surface
 from pygame.constants import K_BACKSPACE
 from pygame.font import Font
-
 from code.Const import MUSIC_FILE, FILEPATH, COLOR_YELLOW, SCORE_POS, MENU_OPTION, DB_NAME, COLOR_WHITE
 from code.DbProxy import DbProxy
 
@@ -19,6 +16,7 @@ class Score:
 
     def save(self, game_mode: str, player_score: list[int]):
         pygame.mixer.music.load(MUSIC_FILE['Score'])
+        pygame.mixer.music.set_volume(0.3)
         pygame.mixer.music.play(-1)
         db_proxy = DbProxy(DB_NAME)
         winner_name: str = ''
@@ -27,12 +25,13 @@ class Score:
             self.window.blit(source=self.surf, dest=self.rect)
             self.score_text(48, 'YOU WIN!!!', COLOR_YELLOW, SCORE_POS['Title'])
             text: str = ''
+            score: int = 0
 
             if game_mode == MENU_OPTION[0]:
                 score = player_score[0]
                 text = 'Enter Player 1\'s  name (4 characters)'
             elif game_mode == MENU_OPTION[1]:
-                score = (player_score[0] + player_score[1]) / 2
+                score = (player_score[0] + player_score[1]) // 2
                 text = 'Enter Team\'s  name (4 characters)'
             elif game_mode == MENU_OPTION[2]:
                 score = max(player_score)
@@ -73,7 +72,8 @@ class Score:
 
         for player_score in list_score:
             _, name, score, date = player_score
-            self.score_text(20, f'{name}    {score: 05d}    {date}', COLOR_YELLOW, SCORE_POS[list_score.index(player_score)])
+            self.score_text(20, f'{name}    {score: 05d}    {date}', COLOR_YELLOW,
+                            SCORE_POS[list_score.index(player_score)])
 
         while True:
             for event in pygame.event.get():

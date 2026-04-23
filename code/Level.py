@@ -1,10 +1,8 @@
 import random
 import sys
-
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-
 from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME, COLOR_GREEN, COLOR_CYAN, \
     EVENT_TIMEOUT, TIMEOUT_STEP, TIMEOUT_LEVEL, MUSIC_FILE
 from code.Enemy import Enemy
@@ -29,11 +27,12 @@ class Level:
             player = EntityFactory.get_entity('Player2')
             player.score = player_score[1]
             self.entity_list.append(player)
-        pygame.time.set_timer(EVENT_ENEMY,SPAWN_TIME)
-        pygame.time.set_timer(EVENT_TIMEOUT,TIMEOUT_STEP)
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
+        pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
     def run(self, player_score: list[int]):
         pygame.mixer_music.load(MUSIC_FILE[self.name])
+        pygame.mixer.music.set_volume(0.3)
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
 
@@ -49,10 +48,14 @@ class Level:
                         self.entity_list.append(shoot)
 
                 if self.entity_list[i].name == 'Player1':
-                    self.level_text(14, f'Player1 - Health: {self.entity_list[i].health:.0f} | Score: {self.entity_list[i].score}', COLOR_GREEN, (10, 25))
+                    self.level_text(14,
+                                    f'Player1 - Health: {self.entity_list[i].health:.0f} | Score: {self.entity_list[i].score}',
+                                    COLOR_GREEN, (10, 25))
 
                 if self.entity_list[i].name == 'Player2':
-                    self.level_text(14, f'Player2 - Health: {self.entity_list[i].health:.0f} | Score: {self.entity_list[i].score}', COLOR_CYAN, (10, 45))
+                    self.level_text(14,
+                                    f'Player2 - Health: {self.entity_list[i].health:.0f} | Score: {self.entity_list[i].score}',
+                                    COLOR_CYAN, (10, 45))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

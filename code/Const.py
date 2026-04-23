@@ -1,7 +1,6 @@
-# C
 import pygame
-from pygame.examples.grid import WINDOW_WIDTH
 
+# C
 COLOR_ORANGE = (255, 165, 0)
 COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
@@ -114,6 +113,7 @@ FILEPATH = {
     'Enemy2Shot': 'craftpix/shots/shot4_asset',
     'Menu': 'craftpix/m1/PRE_ORIG_SIZE',
     'Score': 'craftpix/m8/PRE_ORIG_SIZE'}
+
 # M
 MENU_OPTION = (
     'NEW GAME 1P',
@@ -187,11 +187,8 @@ SCORE_POS = {
     6: (WIN_WIDTH / 2, 230),
     7: (WIN_WIDTH / 2, 250),
     8: (WIN_WIDTH / 2, 270),
-    9: (WIN_WIDTH / 2, 290)
-}
+    9: (WIN_WIDTH / 2, 290)}
 
 # T
-TIMEOUT_STEP = 100 # 100ms
-TIMEOUT_LEVEL = 20000 # 20s
-
-
+TIMEOUT_STEP = 100  # 100ms
+TIMEOUT_LEVEL = 20000  # 20s

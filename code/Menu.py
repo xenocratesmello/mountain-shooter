@@ -1,7 +1,6 @@
 import pygame
 from pygame.font import Font
 from pygame import Surface, Rect
-
 from code.Const import WIN_WIDTH, COLOR_ORANGE, COLOR_WHITE, MENU_OPTION, COLOR_YELLOW, FILEPATH, MUSIC_FILE
 
 
@@ -12,10 +11,11 @@ class Menu:
         self.rect = self.surf.get_rect(left=0, top=0)
 
     @property
-    def run(self, ):
+    def run(self):
         menu_option: int = 0
 
         pygame.mixer.music.load(MUSIC_FILE['Menu'])
+        pygame.mixer.music.set_volume(0.3)
         pygame.mixer.music.play(-1)
 
         while True:
