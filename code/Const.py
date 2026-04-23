@@ -18,6 +18,11 @@ ENTITY_DAMAGE = {
     'Level1Bg5': 0,
     'Level1Bg6': 0,
     'Level1Bg7': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Level2Bg5': 0,
     'Player1': 1,
     'Player2': 1,
     'Enemy1': 1,
@@ -35,6 +40,11 @@ ENTITY_HEALTH = {
     'Level1Bg5': 999,
     'Level1Bg6': 999,
     'Level1Bg7': 999,
+    'Level2Bg1': 999,
+    'Level2Bg2': 999,
+    'Level2Bg3': 999,
+    'Level2Bg4': 999,
+    'Level2Bg5': 999,
     'Player1': 300,
     'Player2': 300,
     'Enemy1': 50,
@@ -52,6 +62,11 @@ ENTITY_SCORE = {
     'Level1Bg5': 0,
     'Level1Bg6': 0,
     'Level1Bg7': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Level2Bg5': 0,
     'Player1': 0,
     'Player2': 0,
     'Enemy1': 100,
@@ -69,6 +84,8 @@ ENTITY_SHOT_DELAY = {
 
 EVENT_ENEMY = pygame.USEREVENT + 1
 
+EVENT_TIMEOUT = pygame.USEREVENT + 2
+
 # F
 FILEPATH = {
     'Level1Bg1': 'craftpix/m2/1',
@@ -78,6 +95,11 @@ FILEPATH = {
     'Level1Bg5': 'craftpix/m2/5',
     'Level1Bg6': 'craftpix/m2/6',
     'Level1Bg7': 'craftpix/m2/7',
+    'Level2Bg1': 'craftpix/m3/1',
+    'Level2Bg2': 'craftpix/m3/2',
+    'Level2Bg3': 'craftpix/m3/3',
+    'Level2Bg4': 'craftpix/m3/4',
+    'Level2Bg5': 'craftpix/m3/5',
     'Player1': 'craftpix/ships/Ship1',
     'Player2': 'craftpix/ships/Ship2',
     'Enemy1': 'craftpix/ships/Ship3',
@@ -93,6 +115,10 @@ MENU_OPTION = (
     'NEW GAME 2P - COMPETITIVE',
     'SCORE',
     'EXIT')
+
+MUSIC_FILE = {
+    'Level1': './asset/pixabay/tudo_free-16-bits-music-294095.mp3',
+    'Level2': './asset/pixabay/tudo_free-16-bits-musica-294099.mp3'}
 
 # P
 PLAYER_KEY_UP = {
@@ -119,6 +145,11 @@ SPEED = {
     'Level1Bg5': 4,
     'Level1Bg6': 5,
     'Level1Bg7': 6,
+    'Level2Bg1': 0,
+    'Level2Bg2': 1,
+    'Level2Bg3': 2,
+    'Level2Bg4': 3,
+    'Level2Bg5': 4,
     'Player1': 3,
     'Player2': 3,
     'Enemy1': 2,
@@ -128,7 +159,11 @@ SPEED = {
     'Enemy1Shot': 5,
     'Enemy2Shot': 3}
 
-SPAWN_TIME = 4000
+SPAWN_TIME = 3000
+
+# T
+TIMEOUT_STEP = 100 # 100ms
+TIMEOUT_LEVEL = 20000 # 20s
 
 # W
 WIN_WIDTH = 576
