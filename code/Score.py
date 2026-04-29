@@ -50,7 +50,7 @@ class Score:
                         db_proxy.close()
                         self.show()
                         return
-                    elif event.key == K_BACKSPACE:
+                    elif event.key == pygame.K_BACKSPACE:
                         winner_name = winner_name[:-1]
                     else:
                         if len(winner_name) < 4:
